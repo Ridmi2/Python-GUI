@@ -1,0 +1,28 @@
+import tkinter as  tk
+from tkinter import ttk
+
+root=tk.Tk()
+root.title('Checkbox')
+root.geometry('300x200')
+root.resizable(False, False)
+
+label_var=tk.StringVar()
+check1_var=tk.StringVar()
+check2_var=tk.StringVar()
+
+def checkbox_results():
+    output_string="Selected options: "+ check1_var.get() + " " +check2_var.get()
+    label_var.set(output_string)
+   
+check1=ttk.Checkbutton(root, text='Python',variable=check1_var,onvalue="Python", offvalue="")
+check1.pack()
+check2=ttk.Checkbutton(root, text='Java',variable=check2_var,onvalue="Java", offvalue="")
+check2.pack()
+
+button=ttk.Button(root, text='Click me', command=checkbox_results)
+button.pack()
+
+label=ttk.Label(root, text=label_var)
+label.pack()
+
+root.mainloop()
